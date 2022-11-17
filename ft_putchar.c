@@ -6,7 +6,7 @@
 /*   By: mthabit <mthabit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 16:10:54 by mthabit           #+#    #+#             */
-/*   Updated: 2022/11/15 17:29:58 by mthabit          ###   ########.fr       */
+/*   Updated: 2022/11/17 11:08:29 by mthabit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	ft_putchar(char c, int *count)
 {
 	write(1, &c, 1);
-	count += 1;
+	*count += 1;
 }

@@ -6,13 +6,13 @@
 /*   By: mthabit <mthabit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 17:55:00 by mthabit           #+#    #+#             */
-/*   Updated: 2022/11/16 11:59:47 by mthabit          ###   ########.fr       */
+/*   Updated: 2022/11/17 22:48:45 by mthabit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	check_form(const char c, va_list argptr, int count)
+static int	check_form(va_list argptr, char c, int *count)
 {
 	if (c == 'd' || c == 'i')
 		ft_putnbr(va_arg(argptr, int), count);
@@ -30,7 +30,7 @@ static int	check_form(const char c, va_list argptr, int count)
 		ft_putchar(c, count);
 	else
 		ft_putchar(c, count);
-	return (count);
+	return (*count);
 }
 
 int	ft_printf(const char *s, ...)
@@ -41,6 +41,8 @@ int	ft_printf(const char *s, ...)
 
 	count = 0;
 	i = 0;
+	if (write(1, 0, 0) == -1)
+		return (-1);
 	va_start(argptr, s);
 	while (s[i])
 	{
@@ -48,7 +50,7 @@ int	ft_printf(const char *s, ...)
 		{
 			if (s[i + 1] == '\0')
 				break ;
-			check_form(s[i + 1], argptr, &count);
+			check_form(argptr, s[i + 1], &count);
 			i++;
 		}
 		else
@@ -58,3 +60,11 @@ int	ft_printf(const char *s, ...)
 	va_end(argptr);
 	return (count);
 }
+
+// #include <libc.h>
+
+// int main ()
+// {
+// 	// fclose(stdout);
+// 	// dprintf(2,"%d",ft_printf("hello"));
+// }

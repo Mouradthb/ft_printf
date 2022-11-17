@@ -6,13 +6,13 @@
 /*   By: mthabit <mthabit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 16:17:19 by mthabit           #+#    #+#             */
-/*   Updated: 2022/11/15 17:30:17 by mthabit          ###   ########.fr       */
+/*   Updated: 2022/11/17 10:32:05 by mthabit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr(int n, int *count)
+void	ft_putnbr(int n, int *count)
 {
 	if (n == -2147483648)
 		ft_putstr("-2147483648", count);
